@@ -1,6 +1,6 @@
 import 'dart:math';
 
-void main(List<String> args) {
+void Wages() {
   const isFullTime = 1;
   const isPartTime = 2;
   const empWagePerHr = 20;
@@ -44,3 +44,7 @@ void main(List<String> args) {
   print(total_Emp_Wage);
 }
 
+void main(List<String> args) {
+  print("Welcome to employee wage calculator ");
+  Wages();
+}
