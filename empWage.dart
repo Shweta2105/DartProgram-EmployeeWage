@@ -5,10 +5,16 @@ void main(List<String> args) {
   const isPartTime = 2;
   const empWagePerHr = 20;
   const maxWorkingDays = 20;
+  const maxWorkingHrs = 100;
 
   int empHr = 0;
   int total_Emp_Wage = 0;
-  for (int day = 0; day <= maxWorkingDays; day++) {
+  int total_Emp_Hrs = 0;
+  int total_Working_Days = 0;
+
+  while (
+      total_Emp_Hrs <= maxWorkingHrs && total_Working_Days <= maxWorkingDays) {
+    total_Working_Days++;
     var randm = new Random();
     int empCheck = randm.nextInt(3);
     print(empCheck);
@@ -37,5 +43,4 @@ void main(List<String> args) {
   print("total Employee wage = ");
   print(total_Emp_Wage);
 }
-
 
