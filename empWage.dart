@@ -1,18 +1,26 @@
 import 'dart:math';
 
-class empWages {
+class empWage {
+  static const isFullTime = 1;
+  static const isPartTime = 2;
+  int empWagePerHr = 20;
+  int maxWorkingDays = 20;
+  int maxWorkingHrs = 100;
+  String company = "";
+
+  int empHr = 0;
+  int total_Emp_Wage = 0;
+  int total_Emp_Hrs = 0;
+  int total_Working_Days = 0;
+  empWage(
+      String company, int empWagePerHr, int maxWorkingDays, int maxWorkingHrs) {
+    this.company = company;
+    this.empWagePerHr = empWagePerHr;
+    this.maxWorkingDays = maxWorkingDays;
+    this.maxWorkingHrs = maxWorkingHrs;
+  }
+
   void Wages() {
-    const isFullTime = 1;
-    const isPartTime = 2;
-    const empWagePerHr = 20;
-    const maxWorkingDays = 20;
-    const maxWorkingHrs = 100;
-
-    int empHr = 0;
-    int total_Emp_Wage = 0;
-    int total_Emp_Hrs = 0;
-    int total_Working_Days = 0;
-
     while (total_Emp_Hrs <= maxWorkingHrs &&
         total_Working_Days <= maxWorkingDays) {
       total_Working_Days++;
@@ -48,5 +56,12 @@ class empWages {
 
 void main(List<String> args) {
   print("Welcome to employee wage calculator ");
-  //Wages();
+  empWage dMart = new empWage("dMart", 20, 20, 100);
+  empWage StarBazar = new empWage("StarBazar", 15, 25, 80);
+  dMart.Wages();
+  print("Dmart total wage");
+  StarBazar.Wages();
+  print("StarBazar total wage");
+  //print(dMart);
+  //print(StarBazar);
 }
