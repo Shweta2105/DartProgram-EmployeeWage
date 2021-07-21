@@ -10,6 +10,7 @@ class EmpWageBuilder {
   int empRatePerHr = 0;
   int maxWorkingDays = 0;
   int numOfCompany = 0;
+  Map<int, List<CompanyWage>> companyWageArray = new Map();
   CompanyWage companyWage1 = new CompanyWage("Dmart", 20, 20, 70);
 
   String company = "";
@@ -24,9 +25,15 @@ class EmpWageBuilder {
 
   void addCompanyEmpwage(String company, int empRatePerHour,
       int numofWorkingDays, int maxHoursPerMonth) {
-    var companyEmpWageArray;
-    companyEmpWageArray[numOfCompany] =
-        new CompanyWage(company, empRatePerHr, maxWorkingDays, maxHrsPerMonth);
+    if (companyWageArray[numOfCompany] == null) {
+      companyWageArray[numOfCompany] = [];
+      companyWageArray[numOfCompany]!.add(companyWage1);
+    } else {
+      companyWageArray[numOfCompany]!.add(companyWage1);
+    }
+    companyWageArray[numOfCompany] =
+        new CompanyWage(company, empRatePerHr, maxWorkingDays, maxHrsPerMonth)
+            as List<CompanyWage>;
     numOfCompany++;
     print(numOfCompany);
   }
